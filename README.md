@@ -28,6 +28,22 @@
 | 點畫面左右邊緣 | 翻頁 |
 | 點縮圖 | 播 YouTube（頁內）／開文章／開 repo |
 
+## 這份簡報是怎麼做的
+
+引擎、取材方法與驗證工具都整理成一個獨立專案了：
+
+### → **[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck)**（MIT）
+
+裡面有：
+
+- **簡報引擎模板** —— 這份簡報用的同一套，含八種版面樣板。不需要任何 AI 工具，
+  複製 `deck-template.html` 就能開始改
+- **取材食譜** —— Reddit / YouTube / Medium / GitHub / 會議官網在「常規做法被擋」
+  之後的可行路徑。例如 Reddit 的 JSON API 被封但 RSS 通、Flutter 版本號只有
+  官方 releases JSON 是可信的
+- **驗證腳本** —— 放映前抓 overflow、破圖、標題孤行，並產出所有頁面的 contact sheet
+- 用 Claude Code 的話，整包就是一個 skill，clone 進 `~/.claude/skills/` 即可
+
 ## 技術
 
 - 單一 HTML，無框架、無 build step
@@ -45,3 +61,13 @@ flutterconusa.dev · fscene.dev · youtube.com/@flutterdev · youtube.com/@bdero
 youtube.com/@nextappevents · serverpod.dev · r/FlutterDev · nowa.dev
 
 素材版權屬各原始作者，此處僅為社群分享用途引用。
+
+## 授權
+
+簡報的**程式碼與版面**採 MIT（見 [LICENSE](LICENSE)），可自由取用改作。
+
+`assets/` 底下的圖片、影片縮圖與 MP4 **不在此授權範圍內** ——
+那些屬於各原始作者（Google、LG、fscene.dev、各 YouTube 頻道與 repo 作者），
+本專案僅為社群分享目的引用。要重複使用請自行向來源確認。
+
+想要乾淨、沒有第三方素材的模板，用 [meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck)。
