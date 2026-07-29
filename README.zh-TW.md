@@ -2,6 +2,8 @@
 
 [English](README.md) · **繁體中文**
 
+![Flutter Taipei Meetup #36 deck in motion](docs/demo.gif)
+
 21 頁自包含 HTML 簡報，涵蓋 2026 年 6/28 – 7/27 的 Flutter 動態。
 每一則都附可查證來源，內容只寫事實與說明。
 

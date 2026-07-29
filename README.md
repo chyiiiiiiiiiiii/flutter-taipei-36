@@ -2,6 +2,8 @@
 
 **English** · [繁體中文](README.zh-TW.md)
 
+![Flutter Taipei Meetup #36 deck in motion](docs/demo.gif)
+
 A 21-slide self-contained HTML deck covering everything that happened in Flutter
 between 28 Jun and 27 Jul 2026. Every item links to a verifiable source.
 
