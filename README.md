@@ -1,73 +1,83 @@
-# Flutter Taipei Meetup #36 — 2026 年 7 月 Flutter 月報
+# Flutter Taipei Meetup #36 — July 2026 Flutter Digest
 
-21 頁自包含 HTML 簡報，涵蓋 2026 年 6/28 – 7/27 的 Flutter 動態。
-每一則都附可查證來源，內容只寫事實與說明。
+**English** · [繁體中文](README.zh-TW.md)
 
-**線上看**：https://chyiiiiiiiiiiii.github.io/flutter-taipei-36/
+A 21-slide self-contained HTML deck covering everything that happened in Flutter
+between 28 Jun and 27 Jul 2026. Every item links to a verifiable source.
 
-## 內容
+**[→ Open the deck](https://chyiiiiiiiiiiii.github.io/flutter-taipei-36/)**
 
-| 章節 | 頁 | 重點 |
+> The slides themselves are in Traditional Chinese — they were presented at a
+> Taipei meetup. The engine, the tooling and the method behind them are language
+> agnostic and documented in English at
+> **[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck)**.
+
+## What's covered
+
+| Chapter | Slides | Highlights |
 |---|---|---|
-| 開場 | 01–02 | 七月的三條主線 |
-| 官方 | 03–07 | 版本車道（3.44.5→.8、3.47 beta）、blog、agent-plugins 接三家 IDE、**官方 AI evals 實作拆解**、LG webOS embedder 開源 |
-| FlutterCon | 08–11 | Orlando 總覽、**議程錄影**（Eric Seidel、Keynote）、企業遷移實例、Agentic Engineering 軌 |
-| Flutter Scene | 12–14 | 即時 3D 引擎、bdero 七月 5 支影片、**自動播放的 3D 影片牆** |
-| 生態與社群 | 15–19 | SoFi / Knowunity 案例、Serverpod 4、官方頻道、r/FlutterDev 熱門、社群開源 demo |
-| 收尾 | 20–21 | 八月到年底行事曆、數字回顧 |
+| Opening | 01–02 | The month's three throughlines |
+| Official | 03–07 | Release train (3.44.5→.8, 3.47 beta), the single July blog post, `agent-plugins` gaining Claude Code / Codex / Cursor support, **how the Flutter team runs AI evals**, LG open-sourcing the webOS embedder |
+| FlutterCon | 08–11 | Orlando overview, **session recordings** (Eric Seidel on why AI makes Flutter matter more), enterprise migration talks, the Agentic Engineering track |
+| Flutter Scene | 12–14 | The real-time 3D engine, bdero's five July videos, **an autoplaying wall of 3D footage** |
+| Ecosystem | 15–19 | SoFi and Knowunity case studies, Serverpod 4, the official channel, r/FlutterDev highlights, community open source with live demos |
+| Closing | 20–21 | Calendar through year end, the month in numbers |
 
-## 操作
+## Controls
 
-| 按鍵 | 動作 |
+| Key | Action |
 |---|---|
-| `→` `↓` `空白` | 下一頁 |
-| `←` `↑` | 上一頁 |
-| `O` | 章節總覽 |
-| `F` | 全螢幕 |
-| `Esc` | 關閉影片播放器 |
-| 點畫面左右邊緣 | 翻頁 |
-| 點縮圖 | 播 YouTube（頁內）／開文章／開 repo |
+| `→` `↓` `Space` | Next slide |
+| `←` `↑` | Previous slide |
+| `O` | Chapter overview |
+| `F` | Fullscreen |
+| `Esc` | Close the video player |
+| Click the left / right screen edge | Page |
+| Click a thumbnail | Play the video in place, or open the article / repo |
 
-## 這份簡報是怎麼做的
+## How this deck was made
 
-引擎、取材方法與驗證工具都整理成一個獨立專案了：
+The engine, the research recipes and the verification tooling are packaged as a
+separate project:
 
-### → **[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck)**（MIT）
+### → **[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck)** (MIT)
 
-裡面有：
+- **The deck template** — the same engine this deck runs on, with eight layout
+  patterns. No AI tooling needed; copy `deck-template.html` and start editing
+- **Source recipes** — how to fetch from Reddit, YouTube, Medium, GitHub and
+  JS-rendered conference sites when the obvious approach is blocked. For example
+  Reddit's JSON API is blocked but its RSS works, and Flutter version numbers are
+  only trustworthy from the official releases JSON
+- **Verification script** — catches overflow, broken assets and orphaned headline
+  lines before you present, and writes a contact sheet of every slide
+- Using Claude Code? The whole repository is a skill — clone it into `~/.claude/skills/`
 
-- **簡報引擎模板** —— 這份簡報用的同一套，含八種版面樣板。不需要任何 AI 工具，
-  複製 `deck-template.html` 就能開始改
-- **取材食譜** —— Reddit / YouTube / Medium / GitHub / 會議官網在「常規做法被擋」
-  之後的可行路徑。例如 Reddit 的 JSON API 被封但 RSS 通、Flutter 版本號只有
-  官方 releases JSON 是可信的
-- **驗證腳本** —— 放映前抓 overflow、破圖、標題孤行，並產出所有頁面的 contact sheet
-- 用 Claude Code 的話，整包就是一個 skill，clone 進 `~/.claude/skills/` 即可
+## Technical notes
 
-## 技術
+- One HTML file, no framework, no build step
+- Fonts are subsetted offline (690 glyphs actually used, 11 woff2 files, 1.3 MB total)
+- Animated WebP and MP4 lazy-load; only the current slide and its neighbours decode
+- auto-fit measures content height and scales down when needed, so nothing is clipped
+  at any aspect ratio
+- YouTube cannot embed from `file://` (error 153), so the deck checks `location.protocol`:
+  it plays in place over http(s) and opens a tab under `file://`
 
-- 單一 HTML，無框架、無 build step
-- 字體為離線子集（掃出實際用到的 690 字元，11 個 woff2 共 1.3 MB）
-- 動態 webp 與 MP4 lazy load，只解碼當前頁與前後一頁
-- auto-fit：量測內容高度，超出就等比縮放，任何螢幕比例都不會被切
-- YouTube 從 `file://` 無法內嵌（error 153），故偵測 protocol：http(s) 下就地播放，file:// 下開新分頁
+## Sources
 
-## 來源
+[`SOURCES.md`](SOURCES.md) has the complete URL list — usable as speaker notes.
 
-`2026-07-來源清單.md` 有完整的 URL 清單，可當講稿。
+Material comes from: blog.flutter.dev · docs.flutter.dev · flutter/agent-plugins ·
+lg-flutter-webos · flutterconusa.dev · fscene.dev · youtube.com/@flutterdev ·
+youtube.com/@bdero · youtube.com/@nextappevents · serverpod.dev · r/FlutterDev · nowa.dev
 
-素材出處：blog.flutter.dev · docs.flutter.dev · flutter/agent-plugins · lg-flutter-webos ·
-flutterconusa.dev · fscene.dev · youtube.com/@flutterdev · youtube.com/@bdero ·
-youtube.com/@nextappevents · serverpod.dev · r/FlutterDev · nowa.dev
+## Licence
 
-素材版權屬各原始作者，此處僅為社群分享用途引用。
+The deck's **code, layout and styling** are MIT (see [LICENSE](LICENSE)).
 
-## 授權
+The images, video thumbnails and MP4s under `assets/` are **not covered** — they belong
+to their original owners (Google, LG, fscene.dev, and the respective YouTube channels
+and repository authors) and are included here as citation for a community talk. Check
+with the sources before reusing them.
 
-簡報的**程式碼與版面**採 MIT（見 [LICENSE](LICENSE)），可自由取用改作。
-
-`assets/` 底下的圖片、影片縮圖與 MP4 **不在此授權範圍內** ——
-那些屬於各原始作者（Google、LG、fscene.dev、各 YouTube 頻道與 repo 作者），
-本專案僅為社群分享目的引用。要重複使用請自行向來源確認。
-
-想要乾淨、沒有第三方素材的模板，用 [meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck)。
+For a clean template with no third-party media, use
+[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck).
