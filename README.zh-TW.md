@@ -36,7 +36,7 @@
 
 引擎、取材方法與驗證工具都整理成一個獨立專案了：
 
-### → **[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck)**（MIT）
+### → **[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck-skill)**（MIT）
 
 裡面有：
 
@@ -46,7 +46,8 @@
   之後的可行路徑。例如 Reddit 的 JSON API 被封但 RSS 通、Flutter 版本號只有
   官方 releases JSON 是可信的
 - **驗證腳本** —— 放映前抓 overflow、破圖、標題孤行，並產出所有頁面的 contact sheet
-- 用 Claude Code 的話，整包就是一個 skill，clone 進 `~/.claude/skills/` 即可
+- 想在 agent 裡用的話一行就好，Claude Code / Codex / Cursor 等皆適用：
+  `npx skills add chyiiiiiiiiiiii/meetup-deck-skill`
 
 ## 技術
 
@@ -74,4 +75,4 @@ youtube.com/@nextappevents · serverpod.dev · r/FlutterDev · nowa.dev
 那些屬於各原始作者（Google、LG、fscene.dev、各 YouTube 頻道與 repo 作者），
 本專案僅為社群分享目的引用。要重複使用請自行向來源確認。
 
-想要乾淨、沒有第三方素材的模板，用 [meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck)。
+想要乾淨、沒有第三方素材的模板，用 [meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck-skill)。

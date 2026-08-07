@@ -12,7 +12,7 @@ between 28 Jun and 27 Jul 2026. Every item links to a verifiable source.
 > The slides themselves are in Traditional Chinese — they were presented at a
 > Taipei meetup. The engine, the tooling and the method behind them are language
 > agnostic and documented in English at
-> **[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck)**.
+> **[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck-skill)**.
 
 ## What's covered
 
@@ -42,7 +42,7 @@ between 28 Jun and 27 Jul 2026. Every item links to a verifiable source.
 The engine, the research recipes and the verification tooling are packaged as a
 separate project:
 
-### → **[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck)** (MIT)
+### → **[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck-skill)** (MIT)
 
 - **The deck template** — the same engine this deck runs on, with eight layout
   patterns. No AI tooling needed; copy `deck-template.html` and start editing
@@ -52,7 +52,8 @@ separate project:
   only trustworthy from the official releases JSON
 - **Verification script** — catches overflow, broken assets and orphaned headline
   lines before you present, and writes a contact sheet of every slide
-- Using Claude Code? The whole repository is a skill — clone it into `~/.claude/skills/`
+- To use it inside an agent (Claude Code, Codex, Cursor and the rest), one command:
+  `npx skills add chyiiiiiiiiiiii/meetup-deck-skill`
 
 ## Technical notes
 
@@ -82,4 +83,4 @@ and repository authors) and are included here as citation for a community talk. 
 with the sources before reusing them.
 
 For a clean template with no third-party media, use
-[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck).
+[meetup-deck](https://github.com/chyiiiiiiiiiiii/meetup-deck-skill).
